@@ -29,4 +29,7 @@ void softmax(Vect *vect);
 float relu_prime(float f);
 void relu_prime(Vect *vect);
 
+Vect createVect(int length, ...);
+Mat createMat(int rows, int cols, ...);
+
 #endif // NNUTILS_H

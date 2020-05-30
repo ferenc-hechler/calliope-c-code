@@ -8,9 +8,7 @@ class Vect;
 class Mat;
 
 size_t float2char(char* buf, float number, uint8_t digits);
-
-Vect createVect(int length, ...);
-Mat createMat(int rows, int cols, ...);
+float char2float(const char* buf);
 
 void throwError(const char *errMsg);
 

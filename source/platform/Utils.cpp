@@ -62,7 +62,6 @@ size_t float2char(char* buf, float number, uint8_t digits) {
   return n;
 }
 
-
 #define SEC_PREFIX 		0
 #define SEC_INTPART 	1
 #define SEC_FRAGPART 	2
@@ -165,33 +164,6 @@ float char2float(const char* text) {
 	if (neg) {
 		result = -result;
 	}
-	return result;
-}
-
-
-Vect createVect(int length, ...) {
-	va_list argp;
-	va_start(argp, length);
-	Vect result = Vect(length);
-	for (int i=0; i<length; i++) {
-		float f = va_arg(argp, double);
-		result.set(i, f);
-	}
-	va_end(argp);
-	return result;
-}
-
-Mat createMat(int rows, int cols, ...) {
-	va_list argp;
-	va_start(argp, cols);
-	Mat result = Mat(rows, cols);
-	for (int r=0; r<rows; r++) {
-		for (int c=0; c<cols; c++) {
-			float f = va_arg(argp, double);
-			result.set(r,c, f);
-		}
-	}
-	va_end(argp);
 	return result;
 }
 

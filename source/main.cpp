@@ -13,6 +13,7 @@
 #include "platform/Utils.h"
 #include "neuralnets/Vect.h"
 #include "neuralnets/NN.h"
+#include "neuralnets/NNUtils.h"
 
 MicroBit uBit;
 
@@ -42,7 +43,7 @@ void run() {
 
 	nn::getBrain()->print();
 
-	log("\nfinished");
+	log("\r\nfinished");
 }
 
 
@@ -54,6 +55,6 @@ int main(void) {
     greeting();
     run();
 
-    log("finished");
+    log("\r\nfinished\r\n");
     return 0;
 }

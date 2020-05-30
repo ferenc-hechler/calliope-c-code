@@ -4,6 +4,7 @@
 #include "Vect.h"
 #include "Mat.h"
 
+#include<stdarg.h>
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
@@ -134,6 +135,34 @@ void relu_prime(Vect *vect) {
 		vect->set(i, relu_prime(vect->get(i)));
 	}
 }
+
+Vect createVect(int length, ...) {
+	va_list argp;
+	va_start(argp, length);
+	Vect result = Vect(length);
+	for (int i=0; i<length; i++) {
+		float f = va_arg(argp, double);
+		result.set(i, f);
+	}
+	va_end(argp);
+	return result;
+}
+
+Mat createMat(int rows, int cols, ...) {
+	va_list argp;
+	va_start(argp, cols);
+	Mat result = Mat(rows, cols);
+	for (int r=0; r<rows; r++) {
+		for (int c=0; c<cols; c++) {
+			float f = va_arg(argp, double);
+			result.set(r,c, f);
+		}
+	}
+	va_end(argp);
+	return result;
+}
+
+
 
 
 
